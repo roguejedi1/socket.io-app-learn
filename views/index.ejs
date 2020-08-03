@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <a href="/about">About us</a>
+  </body>
+  <script src="/socket.io/socket.io.js"> </script>
+  <script>
+    const io = require('socket.io-client');
+    const socket = io('http://localhost:3000');
+    socket.on('welcome', (msg) => {
+        console.log(msg);
+      });
+  </script>
+</html>
